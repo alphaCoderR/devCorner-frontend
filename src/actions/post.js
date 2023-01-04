@@ -13,7 +13,7 @@ import {
 // Get posts
 export const fetchPosts = () => async (dispatch) => {
   try {
-    const res = await axios.get("/api/posts");
+    const res = await axios.get("https://devcorner-api.onrender.com/api/posts");
 
     dispatch({
       type: GET_POSTS,
@@ -30,7 +30,7 @@ export const fetchPosts = () => async (dispatch) => {
 // Adding Likes to the post
 export const addLike = (postId) => async (dispatch) => {
   try {
-    const url = `/api/posts/like/${postId}`;
+    const url = `https://devcorner-api.onrender.com/api/posts/like/${postId}`;
     const res = await axios.put(url);
 
     dispatch({
@@ -48,7 +48,7 @@ export const addLike = (postId) => async (dispatch) => {
 // Removing Likes from the post
 export const removeLike = (postId) => async (dispatch) => {
   try {
-    const url = `/api/posts/dislike/${postId}`;
+    const url = `https://devcorner-api.onrender.com/api/posts/dislike/${postId}`;
     const res = await axios.put(url);
 
     dispatch({
@@ -66,7 +66,7 @@ export const removeLike = (postId) => async (dispatch) => {
 // Deleting a post by its id
 export const removePost = (postId) => async (dispatch) => {
   try {
-    const url = `/api/posts/del/${postId}`;
+    const url = `https://devcorner-api.onrender.com/api/posts/del/${postId}`;
     const res = await axios.delete(url);
 
     dispatch(setAlert("Post Deleted", "success"));
@@ -90,7 +90,7 @@ export const addPost = (formData, history) => async (dispatch) => {
     },
   };
   try {
-    const url = `/api/posts/newPost`;
+    const url = `https://devcorner-api.onrender.com/api/posts/newPost`;
     const res = await axios.post(url, formData, config);
 
     dispatch({
@@ -110,7 +110,7 @@ export const addPost = (formData, history) => async (dispatch) => {
 // Get a single post by its id
 export const fetchPost = (postId) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/posts/${postId}`);
+    const res = await axios.get(`https://devcorner-api.onrender.com/api/posts/${postId}`);
 
     dispatch({
       type: GET_POST,
@@ -132,7 +132,7 @@ export const addComment = (formData, postId) => async (dispatch) => {
     },
   };
   try {
-    const url = `/api/posts/comment/${postId}`;
+    const url = `https://devcorner-api.onrender.com/api/posts/comment/${postId}`;
     const res = await axios.post(url, formData, config);
 
     dispatch({
@@ -151,7 +151,7 @@ export const addComment = (formData, postId) => async (dispatch) => {
 // Removing a comment
 export const removeComment = (postId, commentId) => async (dispatch) => {
   try {
-    const url = `/api/posts/comment/del/${postId}/${commentId}`;
+    const url = `https://devcorner-api.onrender.com/api/posts/comment/del/${postId}/${commentId}`;
     const res = await axios.delete(url);
 
     dispatch({

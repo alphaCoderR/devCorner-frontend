@@ -13,7 +13,7 @@ import {
 // Get all users profile
 export const getProfiles = () => async (dispatch) => {
   try {
-    const res = await axios.get("api/profile");
+    const res = await axios.get("https://devcorner-api.onrender.com/api/profile");
     dispatch({
       type: GET_ALL_PROFILES,
       payload: res.data,
@@ -29,7 +29,7 @@ export const getProfiles = () => async (dispatch) => {
 // Get users profile by id
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/profile/user/${userId}`);
+    const res = await axios.get(`https://devcorner-api.onrender.com/api/profile/user/${userId}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -46,7 +46,7 @@ export const getProfileById = (userId) => async (dispatch) => {
 // Get all Github repos
 export const getGithubRepos = (userName) => async (dispatch) => {
   try {
-    const url = "/api/profile/gitRepo/" + userName;
+    const url = "https://devcorner-api.onrender.com/api/profile/gitRepo/" + userName;
     const res = await axios.get(url);
 
     dispatch({
@@ -66,7 +66,7 @@ export const getGithubRepos = (userName) => async (dispatch) => {
 // GETS THE PROFILE OF THE CURRENT USER
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const res = await axios.get("/api/profile/me");
+    const res = await axios.get("https://devcorner-api.onrender.com/api/profile/me");
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -90,7 +90,7 @@ export const makeProfile = (formData, history, edit = false) => async (
       },
     };
     const body = JSON.stringify(formData);
-    const res = await axios.post("/api/profile", body, config);
+    const res = await axios.post("https://devcorner-api.onrender.com/api/profile", body, config);
 
     dispatch({
       type: GET_PROFILE,
@@ -127,7 +127,7 @@ export const addExperience = (formdata, history) => async (dispatch) => {
       },
     };
     const body = JSON.stringify(formdata);
-    const res = await axios.put("api/profile/experience", body, config);
+    const res = await axios.put("https://devcorner-api.onrender.com/api/profile/experience", body, config);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -155,7 +155,7 @@ export const addExperience = (formdata, history) => async (dispatch) => {
 // Deleting experience field of an user by its id
 export const delExperience = (id, history) => async (dispatch) => {
   try {
-    const link = `api/profile/experience/del/${id}`;
+    const link = `https://devcorner-api.onrender.com/api/profile/experience/del/${id}`;
     const res = await axios.delete(link);
 
     dispatch({
@@ -181,7 +181,7 @@ export const addEducation = (formdata, history) => async (dispatch) => {
       },
     };
     const body = JSON.stringify(formdata);
-    const res = await axios.put("api/profile/edu", body, config);
+    const res = await axios.put("https://devcorner-api.onrender.com/api/profile/edu", body, config);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -209,7 +209,7 @@ export const addEducation = (formdata, history) => async (dispatch) => {
 // Deleting education field of an user by its id
 export const delEducation = (id, history) => async (dispatch) => {
   try {
-    const link = `api/profile/edu/del/${id}`;
+    const link = `https://devcorner-api.onrender.com/api/profile/edu/del/${id}`;
     const res = await axios.delete(link);
 
     dispatch({
@@ -234,7 +234,7 @@ export const delAccount = (id) => async (dispatch) => {
     )
   ) {
     try {
-      const link = `api/profile/del/${id}`;
+      const link = `https://devcorner-api.onrender.com/api/profile/del/${id}`;
       await axios.delete(link);
 
       dispatch({ type: CLEAR_PROFILE });
